@@ -30,7 +30,12 @@ export class WizardPatternExample extends React.Component {
   };
 
   close = () => { this.setState({ showModal: false, loading: false }); };
-  hide = () => { this.close(); console.log('Hiding ...'); }
+  hide = (e) => {
+    // 'e' will always be true if the wizard is closed in the last step, and false in any other step.
+    console.log(e); 
+    this.close();
+    console.log('Hiding ...');
+  }
 
   exit = () => { 
     this.close();
